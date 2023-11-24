@@ -33,7 +33,6 @@ return {
         "lua_ls",
         "pyright",
         "jdtls",
-        "htmx-lsp",
         "clangd",
       },
       -- auto-install configured servers (with lspconfig)

@@ -95,15 +95,21 @@ return {
         })
 
         -- Java
-        lspconfig["jdtls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        -- lspconfig["jdtls"].setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
 
         -- C
         lspconfig["clangd"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+        })
+
+        --HTMX
+        lspconfig["htmx-lsp"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach
         })
 
         -- configure lua server (with special settings)

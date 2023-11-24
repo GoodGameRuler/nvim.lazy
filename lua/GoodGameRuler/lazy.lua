@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local lazy = require("lazy").setup({
     {import = "GoodGameRuler.plugins"},
     {import = "GoodGameRuler.plugins.lsp"}
 }, {
@@ -26,3 +26,7 @@ require("lazy").setup({
         notify = false,
     },
 })
+
+vim.keymap.set("n", "<leader>lo", ":Lazy<CR>")
+vim.keymap.set("n", "<leader>li", ":Lazy install<CR>")
+vim.keymap.set("n", "<leader>ll", ":Lazy load all<CR>")
