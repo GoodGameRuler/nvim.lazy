@@ -13,7 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy").setup({
     {import = "GoodGameRuler.plugins"},
-    {import = "GoodGameRuler.plugins.lsp"}
+    {import = "GoodGameRuler.plugins.lsp"},
+    {import = "GoodGameRuler.plugins.themes"}
 }, {
     install  = {
         colorscheme = {"everblush"},

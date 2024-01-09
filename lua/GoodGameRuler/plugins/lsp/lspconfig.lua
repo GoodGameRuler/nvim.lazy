@@ -107,7 +107,7 @@ return {
         })
 
         --HTMX
-        lspconfig["htmx-lsp"].setup({
+        lspconfig["htmx"].setup({
             capabilities = capabilities,
             on_attach = on_attach
         })

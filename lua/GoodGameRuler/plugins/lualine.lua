@@ -8,7 +8,8 @@ return {
         -- configure lualine with modified theme
         lualine.setup({
             options = {
-                theme = 'everblush',
+                -- theme = 'tokyonight',
+                theme = 'auto',
             },
             sections = {
                 lualine_x = {
