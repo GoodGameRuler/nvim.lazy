@@ -1,5 +1,6 @@
 return {
     "kdheepak/lazygit.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     cmd = {
         "LazyGit",
         "LazyGitConfig",
@@ -7,13 +8,10 @@ return {
         "LazyGitFilter",
         "LazyGitFilterCurrentFile",
     },
-    -- optional for floating window border decoration
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-    },
-
+    dependencies = { "nvim-lua/plenary.nvim", },
     config = function ()
         -- set keymaps
+        require("lazygit")
         local keymap = vim.keymap -- for conciseness
 
         keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Git managment" })
