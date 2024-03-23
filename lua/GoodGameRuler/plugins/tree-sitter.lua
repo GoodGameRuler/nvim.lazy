@@ -74,6 +74,8 @@ return {
       "xml",
       "yaml",
       "svelte",
+      "html",
+      "css",
     },
     incremental_selection = {
       enable = true,
