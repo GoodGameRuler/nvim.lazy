@@ -124,7 +124,7 @@ return {
         -- })
 
         --PHP
-        lspconfig["sqlls"].setup({
+        lspconfig["sqls"].setup({
             capabilities = capabilities,
             on_attach = on_attach
         })
