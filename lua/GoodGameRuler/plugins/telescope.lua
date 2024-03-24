@@ -8,6 +8,7 @@ return {
         "https://github.com/nvim-telescope/telescope-live-grep-args.nvim",
         "https://github.com/aaronhallaert/advanced-git-search.nvim",
         "https://github.com/AckslD/nvim-neoclip.lua",
+        "https://github.com/nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
         local telescope = require("telescope")
@@ -30,6 +31,8 @@ return {
         })
 
         telescope.load_extension("fzf")
+        telescope.load_extension("ui-select")
+
 
         -- set keymaps
         local keymap = vim.keymap -- for conciseness
