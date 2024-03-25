@@ -45,5 +45,6 @@ return {
         keymap.set("n", "<leader>fa", "<cmd>Telescope live_grep_args<cr>", { desc = "Find string in cwd" })
         keymap.set("n", "<leader>fw", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
         keymap.set("n", "<leader>fh", "<cmd>AdvancedGitSearch<cr>", { desc = "Find string under cursor in cwd" })
+        keymap.set("n", "<leader>sf", "<cmd>Telescope spell_suggestcr>", { desc = "Find string under cursor in cwd" })
     end,
 }
