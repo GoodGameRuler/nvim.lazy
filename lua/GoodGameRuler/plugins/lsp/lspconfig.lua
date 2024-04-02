@@ -132,7 +132,24 @@ return {
         --Rust
         lspconfig["rust_analyzer"].setup({
             capabilities = capabilities,
-            on_attach = on_attach
+            on_attach = on_attach,
+            assist = {
+                importEnforceGranularity = true,
+                importPrefix = 'crate',
+            },
+            cargo = {
+                allFeatures = true,
+            },
+            checkOnSave = {
+                command = 'clippy',
+            },
+            inlayHints = { locationLinks = false },
+            diagnostics = {
+                enable = true,
+                experimental = {
+                    enable = true,
+                },
+            },
         })
 
         -- configure lua server (with special settings)
