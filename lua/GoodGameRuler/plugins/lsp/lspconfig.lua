@@ -129,6 +129,13 @@ return {
             on_attach = on_attach
         })
 
+        --Dart/Flutter
+        lspconfig["dartls"].setup({
+            cmd = { "dart", 'language-server', '--protocol=lsp' },
+            capabilities = capabilities,
+            on_attach = on_attach
+        })
+
         --Rust
         lspconfig["rust_analyzer"].setup({
             capabilities = capabilities,
