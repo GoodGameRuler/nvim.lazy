@@ -14,6 +14,9 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 
+		-- Funtion and class signatures
+		local navic = require("nvim-navic")
+
 		local opts = { noremap = true, silent = true, inlay_hints = { enabled = true } }
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
@@ -57,6 +60,10 @@ return {
 
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+			if client.server_capabilities.documentSymbolProvider then
+				navic.attach(client, bufnr)
+			end
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
@@ -125,6 +132,12 @@ return {
 
 		--PHP
 		lspconfig["sqls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- Zig
+		lspconfig["zls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
