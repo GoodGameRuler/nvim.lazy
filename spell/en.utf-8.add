@@ -21,3 +21,7 @@ recurse
 frontend
 camelCase
 PascalCase
+Config
+Configs
+SQL
+iframes

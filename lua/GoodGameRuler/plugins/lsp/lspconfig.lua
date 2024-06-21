@@ -17,7 +17,13 @@ return {
 		-- Funtion and class signatures
 		local navic = require("nvim-navic")
 
-		local opts = { noremap = true, silent = true, inlay_hints = { enabled = true } }
+		if vim.lsp.inlay_hint then
+			vim.keymap.set("n", "<leader>uh", function()
+				vim.lsp.inlay_hint(0, nil)
+			end, { desc = "Toggle Inlay Hints" })
+		end
+
+		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
@@ -50,10 +56,10 @@ return {
 			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
 			opts.desc = "Go to previous diagnostic"
-			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+			-- keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
 			opts.desc = "Go to next diagnostic"
-			keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+			-- keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
 			opts.desc = "Show documentation for what is under cursor"
 			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
@@ -149,6 +155,12 @@ return {
 			on_attach = on_attach,
 		})
 
+		--LaTeX + Markdown
+		lspconfig["ltex"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		--Rust
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
@@ -189,6 +201,7 @@ return {
 							[vim.fn.stdpath("config") .. "/lua"] = true,
 						},
 					},
+					hint = { enable = true },
 				},
 			},
 		})
