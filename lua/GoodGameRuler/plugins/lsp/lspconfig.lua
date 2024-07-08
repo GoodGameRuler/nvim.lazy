@@ -14,9 +14,6 @@ return {
 
 		local keymap = vim.keymap -- for conciseness
 
-		-- Funtion and class signatures
-		local navic = require("nvim-navic")
-
 		if vim.lsp.inlay_hint then
 			vim.keymap.set("n", "<leader>uh", function()
 				vim.lsp.inlay_hint(0, nil)
@@ -67,9 +64,6 @@ return {
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
-			if client.server_capabilities.documentSymbolProvider then
-				navic.attach(client, bufnr)
-			end
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
