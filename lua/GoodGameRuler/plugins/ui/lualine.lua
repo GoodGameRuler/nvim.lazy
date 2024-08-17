@@ -21,10 +21,11 @@ return {
 		lualine.setup({
 			options = {
 				-- theme = 'tokyonight',
-				theme = "catppuccin",
+				-- theme = "catppuccin",
+				theme = "auto",
 				component_separators = { left = " 󱓻 ", right = " 󱓻 " },
 				-- section_separators = { left = "", right = "" },
-                globalstatus = true,
+				globalstatus = true,
 			},
 			sections = {
 				lualine_b = {

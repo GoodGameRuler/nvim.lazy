@@ -9,7 +9,7 @@ return {
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 		"tzachar/cmp-fuzzy-buffer",
-		"hrsh7th/cmp-cmdline",
+		-- "hrsh7th/cmp-cmdline",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -40,10 +40,10 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
+				{ name = "luasnip" }, -- snippets
 				{ name = "nvim_lsp" },
 				{ name = "fuzzy_buffer" },
-				{ name = "luasnip" }, -- snippets
-				{ name = "buffer" }, -- text within current buffer
+				-- { name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu

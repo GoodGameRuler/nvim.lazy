@@ -17,14 +17,15 @@ local lazy = require("lazy").setup({
 	{ import = "GoodGameRuler.plugins" },
 	{ import = "GoodGameRuler.plugins.autocomplete" },
 	{ import = "GoodGameRuler.plugins.file_management" },
-	{ import = "GoodGameRuler.plugins.formatting" },
 	{ import = "GoodGameRuler.plugins.git" },
-	{ import = "GoodGameRuler.plugins.linting" },
 	{ import = "GoodGameRuler.plugins.lsp" },
 	{ import = "GoodGameRuler.plugins.programming_utils" },
 	{ import = "GoodGameRuler.plugins.themes" },
 	{ import = "GoodGameRuler.plugins.ui" },
 	{ import = "GoodGameRuler.plugins.utils" },
+    { import = "GoodGameRuler.plugins.format-linting" },
+    -- { import = "GoodGameRuler.plugins.linting" },
+    -- { import = "GoodGameRuler.plugins.formatting" },
 }, {
 	install = {
 		colorscheme = { "everblush", "catppuccin" },
@@ -42,4 +43,4 @@ vim.keymap.set("n", "<leader>lo", ":Lazy<CR>")
 vim.keymap.set("n", "<leader>li", ":Lazy install<CR>")
 vim.keymap.set("n", "<leader>ll", ":Lazy load all<CR>")
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("melange")
