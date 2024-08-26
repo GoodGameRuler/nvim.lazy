@@ -23,9 +23,9 @@ local lazy = require("lazy").setup({
 	{ import = "GoodGameRuler.plugins.themes" },
 	{ import = "GoodGameRuler.plugins.ui" },
 	{ import = "GoodGameRuler.plugins.utils" },
-    { import = "GoodGameRuler.plugins.format-linting" },
-    -- { import = "GoodGameRuler.plugins.linting" },
-    -- { import = "GoodGameRuler.plugins.formatting" },
+    -- { import = "GoodGameRuler.plugins.format-linting" },
+    { import = "GoodGameRuler.plugins.linting" },
+    { import = "GoodGameRuler.plugins.formatting" },
 }, {
 	install = {
 		colorscheme = { "everblush", "catppuccin" },
