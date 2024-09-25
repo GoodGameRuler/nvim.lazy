@@ -16,6 +16,18 @@ return {
 	config = function()
 		require("noice").setup({
 			lsp = {
+				hover = {
+					enabled = false, -- this will disable hover warning
+				},
+
+				signature = {
+					enabled = false, -- this will disable signtature warning.
+				},
+
+				progress = {
+					enabled = false,
+				},
+
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,

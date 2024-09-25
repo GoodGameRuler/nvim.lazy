@@ -205,7 +205,7 @@ return {
 			},
 		})
 
-        -- Setup code folding
+		-- Setup code folding
 		require("ufo").setup()
 	end,
 }

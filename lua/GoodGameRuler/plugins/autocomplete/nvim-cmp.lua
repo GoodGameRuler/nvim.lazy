@@ -42,11 +42,11 @@ return {
 			sources = cmp.config.sources({
 				{ name = "luasnip" }, -- snippets
 				{ name = "nvim_lsp" },
-				{ name = "fuzzy_buffer" },
+				-- { name = "fuzzy_buffer" },
 				-- { name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
-			-- configure lspkind for vs-code like pictograms in completion menu
+			-- configure lspkind for vs-code like pictograms in completion menucmp
 			formatting = {
 				format = lspkind.cmp_format({
 					maxwidth = 50,
