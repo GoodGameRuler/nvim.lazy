@@ -3,6 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
+		"barreiroleo/ltex_extra.nvim",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
@@ -43,9 +44,6 @@ return {
 			opts.desc = "See available code actions"
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
-			opts.desc = "Smart rename"
-			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
 			opts.desc = "Show buffer diagnostics"
 			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
@@ -58,8 +56,8 @@ return {
 			opts.desc = "Go to next diagnostic"
 			-- keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
-			opts.desc = "Show documentation for what is under cursor"
-			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+			-- opts.desc = "Show documentation for what is under cursor"
+			-- keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -67,12 +65,6 @@ return {
 
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		-- For ufo code folding
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -89,7 +81,7 @@ return {
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -107,10 +99,10 @@ return {
 		})
 
 		-- Java
-		-- lspconfig["jdtls"].setup({
-		--     capabilities = capabilities,
-		--     on_attach = on_attach,
-		-- })
+		lspconfig["jdtls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- C
 		lspconfig["clangd"].setup({
@@ -156,6 +148,34 @@ return {
 
 		--LaTeX + Markdown
 		lspconfig["ltex"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				ltex = {
+					language = "en-GB",
+				},
+			},
+		})
+
+		require("ltex_extra").setup({
+			server_opts = {
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					ltex = {
+						language = "en-GB",
+					},
+				},
+			},
+		})
+
+		--Go
+		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["golangci_lint_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -206,6 +226,5 @@ return {
 		})
 
 		-- Setup code folding
-		require("ufo").setup()
 	end,
 }

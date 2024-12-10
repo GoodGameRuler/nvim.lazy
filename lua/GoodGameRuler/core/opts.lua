@@ -1,5 +1,3 @@
-o = vim.opt
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -25,12 +23,6 @@ vim.g.mapleader = " "
 vim.opt.foldmethod = "syntax"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
--- vim.cmd(
--- [[
---   au BufWinLeave * silent mkview
---   au BufWinEnter * silent loadview
---   ]]
--- )
 
 -- Error bars don't keep moving when not there
 vim.o.signcolumn = "yes:2"
@@ -41,3 +33,7 @@ vim.opt.spell = false
 
 -- Local Leader
 vim.g.maplocalleader = "\\"
+
+-- LCS
+-- vim.opt.listchars = {eol = '↵', trail = "_"}
+-- vim.opt.list = true

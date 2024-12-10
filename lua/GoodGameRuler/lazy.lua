@@ -14,21 +14,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy").setup({
-	{ import = "GoodGameRuler.plugins" },
+	-- { import = "GoodGameRuler.plugins" },
 	{ import = "GoodGameRuler.plugins.autocomplete" },
 	{ import = "GoodGameRuler.plugins.file_management" },
-	{ import = "GoodGameRuler.plugins.git" },
+	{ import = "GoodGameRuler.plugins.notetaking" },
+	-- { import = "GoodGameRuler.plugins.git" },
 	{ import = "GoodGameRuler.plugins.lsp" },
 	{ import = "GoodGameRuler.plugins.programming_utils" },
 	{ import = "GoodGameRuler.plugins.themes" },
 	{ import = "GoodGameRuler.plugins.ui" },
 	{ import = "GoodGameRuler.plugins.utils" },
-    -- { import = "GoodGameRuler.plugins.format-linting" },
-    { import = "GoodGameRuler.plugins.linting" },
-    { import = "GoodGameRuler.plugins.formatting" },
+	-- { import = "GoodGameRuler.plugins.format-linting" },
+	{ import = "GoodGameRuler.plugins.linting" },
+	{ import = "GoodGameRuler.plugins.formatting" },
 }, {
 	install = {
-		colorscheme = { "everblush", "catppuccin" },
+		colorscheme = { "catppuccin", "tokyo-night" },
 	},
 	checker = {
 		enabled = true,
@@ -37,10 +38,16 @@ local lazy = require("lazy").setup({
 	change_detection = {
 		notify = false,
 	},
+	{
+		rocks = {
+			enabled = true,
+			hererocks = true,
+		},
+	},
 })
 
 vim.keymap.set("n", "<leader>lo", ":Lazy<CR>")
 vim.keymap.set("n", "<leader>li", ":Lazy install<CR>")
 vim.keymap.set("n", "<leader>ll", ":Lazy load all<CR>")
 
-vim.cmd.colorscheme("melange")
+vim.cmd.colorscheme("catppuccin-macchiato")
