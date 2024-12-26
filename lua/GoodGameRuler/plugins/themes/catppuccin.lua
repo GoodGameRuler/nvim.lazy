@@ -1,12 +1,15 @@
 return {
-	"catppuccin/nvim",
-	priority = 1000,
-	name = "catppuccin",
-	opt = {
-		transparent = true,
-		styles = {
-			sidebars = "transparent",
-			float = "transparent",
-		},
-	},
+  "catppuccin/nvim",
+  priority = 1000,
+  name = "catppuccin",
+  opt = {
+    transparent = true,
+    styles = {
+      sidebars = "transparent",
+      float = "transparent",
+    },
+  },
+  config = function()
+    vim.cmd.colorscheme("catppuccin-frappe")
+  end
 }
