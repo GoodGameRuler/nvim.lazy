@@ -50,3 +50,5 @@ local lazy = require("lazy").setup({
 vim.keymap.set("n", "<leader>lo", ":Lazy<CR>")
 vim.keymap.set("n", "<leader>li", ":Lazy install<CR>")
 vim.keymap.set("n", "<leader>ll", ":Lazy load all<CR>")
+
+vim.cmd.colorscheme("catppuccin-frappe")
