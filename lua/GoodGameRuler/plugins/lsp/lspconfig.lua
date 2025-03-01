@@ -180,7 +180,7 @@ return {
       on_attach = on_attach,
     })
 
-    lspconfig["bufls"].setup({
+    lspconfig["buf_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
